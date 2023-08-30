@@ -45,25 +45,15 @@ pipeline {
       sh 'sudo mvn clean package'
        }
     }
-    stage ('Deploy-To-Tomcat-Docker') {
+    stage ('Deploy-To-Tomcat') {
             steps {
-                sh 'sudo docker build -t cdac .'
-                sh 'sudo docker tag cdac localhost:5000/cdac'
-                sh 'sudo docker push localhost:5000/cdac'
+                sh 'sudo cp target/*.war /opt/tomcat9/webapps/cdac.war'
               }             
     }
-    stage ('Deploy-To-K8s') {
-            steps {
-               sh 'sudo microk8s kubectl apply -f deployment.yml'
-               sh 'sudo microk8s kubectl apply -f service.yml'
-               sh 'sudo microk8s kubectl get svc tomcat-service'
-              }             
-    }
-    
     stage ('DAST') {
       steps {
          sh 'sudo mkdir -p /opt/zap' 
-         sh 'sudo ssh root@172.31.10.91 "sudo docker run --rm -u root -v /opt/zap:/zap/wrk:rw -t owasp/zap2docker-stable zap-baseline.py -t http://65.2.31.246:30330/cdac/ -x zap_report || true" '
+         sh 'sudo ssh root@172.31.10.91 "sudo docker run --rm -u root -v /opt/zap:/zap/wrk:rw -t owasp/zap2docker-stable zap-baseline.py -t http://65.2.31.246:8181/cdac/ -x zap_report || true" '
         }
       }
    
