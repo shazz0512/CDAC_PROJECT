@@ -1,5 +1,5 @@
 
-# DevSecOps: Vulnerability Assessment in Action
+# Vulnerability Assessment using DevSecOps
 
 ![CI/CD Pipeline](pipeline_image.png)
 
