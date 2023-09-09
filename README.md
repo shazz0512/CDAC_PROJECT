@@ -31,7 +31,7 @@ Collaboration among development, security, and operations teams is a fundamental
 
 ## 6. Security in the CI/CD Pipeline
 
-Security checks and scans are seamlessly integrated into our CI/CD pipeline. These automated checks occur at every crucial stage, from code commits to containerized deployment, ensuring that security is maintained at each juncture.
+Security checks and scans are seamlessly integrated into our CI/CD pipeline. These automated checks occur at every crucial stage, from code commits to containerized deployment on Kubernetes, ensuring that security is maintained at each juncture.
 
 ## 7. Continuous Improvement
 
@@ -43,4 +43,4 @@ By embedding vulnerability assessment into our DevSecOps pipeline, we maintain a
 
 ## Conclusion
 
-Our DevSecOps approach empowers us to identify and address vulnerabilities at every turn, ensuring that our software remains secure, and our users' data is safeguarded. By embracing security as a continuous process, we fortify our commitment to delivering high-quality, secure software that our users can trust.
+Our DevSecOps approach empowers us to identify and address vulnerabilities at every turn, ensuring that our software deployed on Kubernetes remains secure, and our users' data is safeguarded. By embracing security as a continuous process, we fortify our commitment to delivering high-quality, secure software that our users can trust.
